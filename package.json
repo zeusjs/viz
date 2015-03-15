@@ -1,0 +1,24 @@
+{
+  "name": "zeus-viz",
+  "version": "0.0.1",
+  "description": "Graphs & visualization widgets built using AngularJS and D3.js",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zeusjs/viz.git"
+  },
+  "keywords": [
+    "D3.js",
+    "AngularJS",
+    "visualizations"
+  ],
+  "author": "Zeus Core Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zeusjs/viz/issues"
+  },
+  "homepage": "https://github.com/zeusjs/viz"
+}
