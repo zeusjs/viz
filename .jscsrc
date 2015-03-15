@@ -1,0 +1,58 @@
+{
+
+    "preset": "jquery",
+
+    "disallowSpacesInFunctionExpression": null,
+    "disallowSpacesInFunction": null,
+    "disallowSpacesInAnonymousFunctionExpression": null,
+    "disallowSpacesInNamedFunctionExpression": null,
+    "disallowMultipleLineBreaks": null,
+
+    "requireCamelCaseOrUpperCaseIdentifiers": null,
+
+
+    "requireSpacesInFunctionExpression": {
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "requireSpacesInNamedFunctionExpression": {
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "requireSpacesInFunctionDeclaration": {
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "requireSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "requireSpacesInFunction": {
+        "beforeOpeningRoundBrace": true,
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "disallowQuotedKeysInObjects": true,
+    "validateQuoteMarks": "'",
+
+    "requireSpacesInsideArrayBrackets": "all",
+    "requireSpacesInsideParentheses": "all",
+    "requireSpacesInsideObjectBrackets": "all",
+
+    "requireSpaceBeforeBlockStatements": true,
+    "disallowMixedSpacesAndTabs": true,
+    "disallowSpaceAfterObjectKeys": true,
+    "requireCommaBeforeLineBreak": true,
+    "requireDotNotation": true,
+
+    "disallowTrailingWhitespace": true,
+    "disallowSpaceAfterPrefixUnaryOperators": true,
+    "disallowMultipleLineStrings": true,
+    "requireMultipleVarDecl": "onevar",
+    "safeContextKeyword": ["that", "self"]
+
+}
