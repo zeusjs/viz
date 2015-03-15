@@ -1,0 +1,34 @@
+.zs-donut
+{
+        .unfilled
+        {
+           fill: white;
+           stroke-width: 10;
+           stroke: #DDD;
+        }
+
+        .donut-fragment
+        {
+
+        }
+
+        .legend-fragment
+        {
+            text
+            {
+                fill: $color_gray_dark;
+                font-weight: 300;
+                font-size: 0.85em;
+
+            }
+        }
+        text.donut-title
+        {
+            fill: $color_gray_dark;
+            font-weight: 400;
+        }
+        text.donut-subtitle
+        {
+            fill: $color_gray;
+        }
+    }
