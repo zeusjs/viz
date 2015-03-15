@@ -2,7 +2,7 @@
 
 /**
  *  @ngdoc directive
- *  @name zsApp.directive:zsDonut
+ *  @name zeus.viz.directive:zsDonut
  *  @restrict E
  *
  *  @description
@@ -19,7 +19,7 @@
  *  @param {string=} subtitle Subtitle
  *
  *  @example
- <example module="zsApp">
+ <example module="zeus.viz">
     <file name="index.html">
         <div ng-controller="myCtrl">
             <zs-donut values="val" text="45"
