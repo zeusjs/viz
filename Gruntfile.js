@@ -90,7 +90,7 @@ module.exports = function ( grunt ) {
         uglify: {
             options: {
                 banner: '/*! Copyright (C) <%= grunt.template.today("yyyy") %>. ' +
-            'ZeusJS \n' +
+            'Symantec Corporation \n' +
             '<%= pkg.name %> - v<%= pkg.version %>.' +
             '<%= process.env.BUILD_NUMBER %> */\n',
                 compress: {
@@ -115,7 +115,7 @@ module.exports = function ( grunt ) {
                     root: '.',
                     keepSpecialComments: 0,
                     banner: '/*! Copyright (C) <%= grunt.template.today("yyyy") %>. ' +
-                        'ZeusJS \n' +
+                        'Symantec Corporation \n' +
                         '<%= pkg.name %> - v<%= pkg.version %>.' +
                         '<%= process.env.BUILD_NUMBER %> */\n'
                 },
