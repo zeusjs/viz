@@ -22,6 +22,6 @@ cd viz
 git config user.name "ZeusJS Build Bot"
 git config user.email "zeusjs.bot@gmail.com"
 cp -R ../../dist/* dist
-git add dist/sass/*.scss dist/html/*.html dist/css/*.css dist/js/*.js
+git add dist/sass/*.scss dist/css/*.css dist/js/*.js
 git commit dist -m "Publish latest build artifacts"
 git push "https://${GH_TOKEN}@${GH_REF}" > /dev/null 2>&1
