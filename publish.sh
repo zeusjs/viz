@@ -18,7 +18,7 @@ rm -rf .travis_build || exit 0;
 mkdir .travis_build
 cd .travis_build
 git clone "https://${GH_TOKEN}@${GH_REF}"
-cd widgets
+cd viz
 git config user.name "ZeusJS Build Bot"
 git config user.email "zeusjs.bot@gmail.com"
 cp -R ../../dist/* dist
