@@ -1,9 +1,12 @@
- language: node_js
- node_js:
-   - "0.10"
-
- before_script:
+language: node_js
+node_js:
+  - "0.10"
+before_script:
   - npm install --quiet -g grunt-cli karma
   - npm install
-
- script: grunt build
+script: grunt build
+after_success: ./publish.sh
+env:
+  global:
+    - GH_REF: github.com/zeusjs/viz.git
+    - secure: dyHpNy00V3pGgJq4OSQjKqRJROExTrHwB4WmadFJelwdwEhijfvWNrQGnl5CvFKZHfyAQy16FY2XPKjwyOFdZJKf5gsW4Hd+V2gGxvclpaPOjy8ym0jtVesCzl65rM6csDZrNjoDMAvXcd1uCEZS+I5p+7nPIS66xdfSXzkDoos=

@@ -36,6 +36,8 @@ module.exports = function ( grunt ) {
                     src: [
                         '.tmp',
                         'dist/*',
+                        'docs',
+                        'publish_docs',
                         '!dist/.git*'
                     ]
                 } ]
@@ -70,10 +72,10 @@ module.exports = function ( grunt ) {
 
 
         concat: {
-          dist: {
-              src: [ 'src/js/*.js' ],
-              dest: '.tmp/js/zeus-viz.js'
-          }
+            dist_js: {
+                src: [ 'src/js/index.js', 'src/js/*.js' ],
+                dest: '.tmp/js/zeus-viz.js'
+            }
         },
 
         jscs: {
@@ -102,7 +104,7 @@ module.exports = function ( grunt ) {
             dist: {
               files: {
                 'dist/js/zeus-viz.min.js': [
-                    'dist/js/zeus-viz.js'
+                    '.tmp/js/zeus-viz.js'
                 ]
               }
             }
@@ -134,8 +136,8 @@ module.exports = function ( grunt ) {
                     files: [ {
                         expand: true,
                         cwd: '.tmp/js',
-                        src: 'zeus-viz.js',
-                        dest: 'dist/js'
+                        src: '*.js',
+                        dest: '.tmp/js'
                     } ]
                 }
             },
@@ -148,12 +150,15 @@ module.exports = function ( grunt ) {
                     startPage: '/api',
                     editExample: false,
                     styles: [
-                        'docs/css/zeus.css'
+                        'dist/css/zeus-viz.css'
                     ],
                     scripts: [
-                        'docs/js/vendor.js',
-                        'docs/js/angular-animate.min.js',
-                        'docs/js/zeus-ui.js'
+                        'extern/libs/jquery.js',
+                        'extern/libs/d3.js',
+                        'extern/libs/d3_tip.js',
+                        'extern/libs/angular.js',
+                        'extern/libs/angular-animate.js',
+                        'dist/js/zeus-viz.js'
                     ]
                 },
                 api: [
@@ -184,23 +189,23 @@ module.exports = function ( grunt ) {
             copy: {
 
 
-                docs: {
-                    files: [
-                    {
-                        expand: true,
-                        flatten: true,
-                        cwd: '.tmp/concat/scripts',
-                        dest: 'docs/js',
-                        src: [ '*.js' ]
-                    },
-                    {
-                        expand: true,
-                        flatten: true,
-                        cwd: 'dist/css',
-                        dest: 'docs/css',
-                        src: [ '*.css' ]
-                    } ]
-                },
+                // docs: {
+                //     files: [
+                //     {
+                //         expand: true,
+                //         flatten: true,
+                //         cwd: '.tmp/concat/scripts',
+                //         dest: 'docs/js',
+                //         src: [ '*.js' ]
+                //     },
+                //     {
+                //         expand: true,
+                //         flatten: true,
+                //         cwd: 'dist/css',
+                //         dest: 'docs/css',
+                //         src: [ '*.css' ]
+                //     } ]
+                // },
 
                 build: {
                     files: [
@@ -214,10 +219,25 @@ module.exports = function ( grunt ) {
                         {
                             expand: true,
                             flatten: true,
+                            cwd: '.tmp/css',
+                            dest: 'dist/css',
+                            src: [ '*.css' ]
+                        },
+                        {
+                            expand: true,
+                            flatten: true,
                             cwd: 'src/html',
                             dest: 'dist/html',
                             src: [ '*.html' ]
+                        },
+                        {
+                            expand: true,
+                            flatten: true,
+                            cwd: '.tmp/js',
+                            dest: 'dist/js',
+                            src: [ '*.js' ]
                         }
+
                     ]
                 }
 
@@ -280,21 +300,21 @@ module.exports = function ( grunt ) {
         ] );
 
         grunt.registerTask( 'docs', [
-            'copy:docs',
             'ngdocs'
         ] );
 
         grunt.registerTask( 'build', [
-            'test',
-            'clean:dist',
+            'lint',
+            // 'karma',
+            'clean',
             'sass',
             'autoprefixer',
             'concat',
             'ngAnnotate',
             'copy:build',
-            // 'docs',
             'cssmin',
             'uglify',
+            'docs',
             'sloc'
         ] );
     };
