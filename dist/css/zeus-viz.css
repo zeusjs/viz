@@ -11,3 +11,14 @@
   font-weight: 400; }
 .zs-donut text.donut-subtitle {
   fill: #999; }
+
+svg.multi-column-graph .axis {
+  fill: #999; }
+  svg.multi-column-graph .axis text {
+    font-size: 0.85em; }
+  svg.multi-column-graph .axis path, svg.multi-column-graph .axis line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+  svg.multi-column-graph .axis g.tick line {
+    stroke: #eee; }

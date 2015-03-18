@@ -2,7 +2,7 @@
 
 /**
  *  @ngdoc directive
- *  @name zeus.viz:zsDonut
+ *  @name zeus.viz.directive:zsDonut
  *  @restrict E
  *
  *  @description

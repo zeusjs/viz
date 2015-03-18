@@ -146,7 +146,7 @@ module.exports = function ( grunt ) {
                 options: {
                     dest: 'docs',
                     html5Mode: false,
-                    title: 'Zeus Widgets',
+                    title: 'Zeus Viz',
                     startPage: '/api',
                     editExample: false,
                     styles: [

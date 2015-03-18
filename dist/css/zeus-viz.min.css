@@ -1,4 +1,4 @@
 /*! Copyright (C) 2015. Symantec Corporation 
 zeus-viz - v0.0.1. */
 
-.zs-donut .unfilled{fill:#fff;stroke-width:10;stroke:#DDD}.zs-donut .legend-fragment text{fill:#666;font-weight:300;font-size:.85em}.zs-donut text.donut-title{fill:#666;font-weight:400}.zs-donut text.donut-subtitle{fill:#999}
+.zs-donut .unfilled{fill:#fff;stroke-width:10;stroke:#DDD}.zs-donut .legend-fragment text{fill:#666;font-weight:300;font-size:.85em}.zs-donut text.donut-title{fill:#666;font-weight:400}.zs-donut text.donut-subtitle,svg.multi-column-graph .axis{fill:#999}svg.multi-column-graph .axis text{font-size:.85em}svg.multi-column-graph .axis line,svg.multi-column-graph .axis path{fill:none;stroke:#999;shape-rendering:crispEdges}svg.multi-column-graph .axis g.tick line{stroke:#eee}
