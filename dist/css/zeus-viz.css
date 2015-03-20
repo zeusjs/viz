@@ -22,3 +22,33 @@ svg.multi-column-graph .axis {
     shape-rendering: crispEdges; }
   svg.multi-column-graph .axis g.tick line {
     stroke: #eee; }
+
+svg.punch-card g.axis {
+  fill: #999; }
+  svg.punch-card g.axis text {
+    font-size: 0.85em; }
+  svg.punch-card g.axis path, svg.punch-card g.axis line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+
+.punch-card-tooltip {
+  position: absolute;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ddd;
+  padding: 5px;
+  max-width: 200px;
+  text-align: center; }
+  .punch-card-tooltip .tooltip-message:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg); }
