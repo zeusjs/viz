@@ -52,3 +52,16 @@ svg.punch-card g.axis {
     bottom: -10px;
     transform: rotate(270deg);
     -webkit-transform: rotate(270deg); }
+
+svg.bar-graph .axis {
+  fill: #999; }
+  svg.bar-graph .axis text {
+    font-size: 0.85em; }
+  svg.bar-graph .axis path, svg.bar-graph .axis line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+  svg.bar-graph .axis g.tick line {
+    stroke: #eee; }
+svg.bar-graph .shadow-bar {
+  fill: #FFF; }
