@@ -51,10 +51,10 @@
     "karma-ng-json2js-preprocessor": "^0.1.1",
     "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "^0.4.0",
+    "node-sass": "^3.0.0-alpha.0",
     "time-grunt": "^0.3.1"
   },
   "engines": {
     "node": ">=0.10.0"
   }
-
 }
