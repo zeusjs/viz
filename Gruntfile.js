@@ -10,6 +10,19 @@ module.exports = function ( grunt ) {
     grunt.initConfig( {
 
         pkg: grunt.file.readJSON( 'package.json' ),
+        licenseHeaderLong: [ '/**',
+            ' * Copyright (C) <%= grunt.template.today("yyyy") %>, Symantec Corporation',
+            ' * All rights reserved.',
+            ' *',
+            ' * This source code is licensed under the MIT license found in the',
+            ' * LICENSE file in the root directory of this source tree',
+            ' */', '' ].join( '\n' ),
+
+        licenseHeaderShort: [ '/*!',
+            ' * Copyright (C) <%= grunt.template.today("yyyy") %>, Symantec Corporation',
+            ' * All rights reserved.',
+            ' * <%= pkg.name %> v<%= pkg.version %>',
+            ' */', '' ].join( '\n' ),
 
         jshint: {
             options: {
@@ -72,6 +85,10 @@ module.exports = function ( grunt ) {
 
 
         concat: {
+            options: {
+                banner: '<%= licenseHeaderShort %>'
+            },
+
             dist_js: {
                 src: [ 'src/js/index.js', 'src/js/*.js' ],
                 dest: '.tmp/js/zeus-viz.js'
@@ -91,10 +108,7 @@ module.exports = function ( grunt ) {
 
         uglify: {
             options: {
-                banner: '/*! Copyright (C) <%= grunt.template.today("yyyy") %>. ' +
-            'Symantec Corporation \n' +
-            '<%= pkg.name %> - v<%= pkg.version %>.' +
-            '<%= process.env.BUILD_NUMBER %> */\n',
+                banner: '<%= licenseHeaderShort %>',
                 compress: {
                     drop_console: true
                 },
@@ -167,19 +181,19 @@ module.exports = function ( grunt ) {
             },
 
             sloc: {
-                'source-code': {
+                javascript: {
                     files: {
-                        code: [
-                            'src/js/*.js',
-                            'src/sass/*.scss'
+                        src: [
+                            'js/**/*.js',
+                            'js/*.js'
                         ]
                     }
                 },
-                tests: {
+                styles: {
                     files: {
-                        test: [
-                            'spec/**/*.js',
-                            'mock_views/*.html'
+                        src: [
+                            'sass/**/*.scss',
+                            'sass/*.scss'
                         ]
                     }
                 }
