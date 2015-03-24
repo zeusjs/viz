@@ -1,3 +1,8 @@
+/*!
+ * Copyright (C) 2015, Symantec Corporation
+ * All rights reserved.
+ * zeus-viz v0.0.1
+ */
 /**
  * Copyright 2015, Symantec Corporation
  * All rights reserved.
@@ -11,9 +16,15 @@
 
 angular.module( 'zeus.viz', [] );
 
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+
 'use strict';
-
-
 /**
  *  @ngdoc directive
  *  @name zeus.viz.directive:zsBarGraph
@@ -342,6 +353,13 @@ angular.module( 'zeus.viz' )
     }
 ] );
 
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
 'use strict';
 
 /**
@@ -686,6 +704,13 @@ angular.module( 'zeus.viz' )
     }
 ] );
 
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
 'use strict';
 
 /**
@@ -1180,6 +1205,14 @@ angular.module( 'zeus.viz' )
 
     }
 ] );
+
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
 
 'use strict';
 
