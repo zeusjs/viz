@@ -713,6 +713,51 @@ angular.module( 'zeus.viz' )
  */
 'use strict';
 
+/**
+ *  @ngdoc directive
+ *  @name zeus.viz.directive:zsGauge
+ *  @restrict E
+ *
+ *  @description
+ *  A directive for rendering a gauge with a needle
+ *
+ *  @scope
+ *
+ *  @param {number} value Current value to be indicated by gauge
+ *  @param {number} maxValue Max possible value
+ *  @param {string=} backColor The color of unfilled portion of the gauge
+ *  @param {string=} fillColor The color of filled portion of the gauge
+ *
+ *  @example
+ <example module="zeus.viz">
+    <file name="index.html">
+        <div ng-controller="myCtrl" style="width:350px;height:300px">
+            <zs-gauge max-value="total"
+                value="val"
+                back-color="#CCC" fill-color="#ff9800">
+            </zs-gauge>
+        </div>
+    </file>
+    <file name="myCtrl.js">
+        angular.module( 'zeus.viz' ).controller( 'myCtrl', function ( $scope, $interval ) {
+            var cols = [ '#ff9800', '#8bc34a', '#e91e63', '#03a9f4'  ],
+                stop;
+
+            $scope.val = Math.random() * 1000;
+            $scope.total = 1000;
+
+            stop = $interval( function () {
+                $scope.val = Math.random() * 1000;
+            }, 5000 );
+
+            $scope.$on( '$destroy', function () {
+                $interval.cancel( stop );
+            } );
+        } );
+    </file>
+ </example>
+ */
+
 angular.module( 'zeus.viz' )
   .directive( 'zsGauge', [ '$window', function ( $window ) {
     var CHART_INSET = 10,
@@ -785,18 +830,18 @@ angular.module( 'zeus.viz' )
             height = parent.clientHeight - margin.top,
             radius = Math.min( width / 2, height ),
             gaugeWidth = width / 6,
-            arc, usedValueScale, usedValueDegScale,
+            arc, valueScale, valueDegScale,
             gaugeBlock, needle, needlePosition, arcFilled;
 
-        usedValueScale = d3.scale.linear().
+        valueScale = d3.scale.linear().
                             domain( [ 0, 1 ] ).
                             range( [ -1.56, 1.56 ] );
 
-        usedValueDegScale = d3.scale.linear().
+        valueDegScale = d3.scale.linear().
                                 domain( [ 0, 1 ] ).
                                 range( [ 90, 270 ] );
 
-        needlePosition = usedValueDegScale( 0 );
+        needlePosition = valueDegScale( 0 );
 
         svg.attr( 'width', width ).
             attr( 'height', height );
@@ -826,8 +871,8 @@ angular.module( 'zeus.viz' )
                     style( 'fill', '#666' ).
                     attr( 'transform', 'rotate( ' + needlePosition + ' )' );
 
-        scope.$watch( 'usedValue', function () {
-            arcFilled = scope.usedValue / scope.totalValue;
+        scope.$watch( 'value', function () {
+            arcFilled = scope.value / scope.maxValue;
 
             if ( arcFilled > 1 ) {
                 arcFilled = 1;
@@ -841,7 +886,7 @@ angular.module( 'zeus.viz' )
                 transition().
                 duration( 1500 ).
                 ease( 'bounce' ).
-                call( arcTween, usedValueScale( arcFilled ) );
+                call( arcTween, valueScale( arcFilled ) );
 
             oldNeedlePosition = needlePosition;
 
@@ -864,7 +909,7 @@ angular.module( 'zeus.viz' )
 
         function needleTween () {
             return d3.interpolateString( 'rotate( ' + oldNeedlePosition + ' )',
-                     'rotate( ' + usedValueDegScale( arcFilled ) + ' )' );
+                     'rotate( ' + valueDegScale( arcFilled ) + ' )' );
         }
     };
 
@@ -875,8 +920,8 @@ angular.module( 'zeus.viz' )
         replace: true,
         scope: {
             initialValue: '@',
-            totalValue: '=',
-            usedValue: '=',
+            maxValue: '=',
+            value: '=',
             backColor: '@',
             fillColor: '@',
             needleColor: '@'
