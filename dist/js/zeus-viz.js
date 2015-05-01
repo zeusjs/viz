@@ -871,6 +871,9 @@ angular.module( 'zeus.viz' )
                     style( 'fill', '#666' ).
                     attr( 'transform', 'rotate( ' + needlePosition + ' )' );
 
+
+        oldNeedlePosition = needlePosition;
+
         scope.$watch( 'value', function () {
             arcFilled = scope.value / scope.maxValue;
 
@@ -888,12 +891,13 @@ angular.module( 'zeus.viz' )
                 ease( 'bounce' ).
                 call( arcTween, valueScale( arcFilled ) );
 
-            oldNeedlePosition = needlePosition;
-
             needle.transition().
                 duration( 1500 ).
                 ease( 'bounce' ).
-                attrTween( 'transform', needleTween );
+                attrTween( 'transform', needleTween ).
+                each( 'end', function () {
+                    oldNeedlePosition = valueDegScale( arcFilled );
+                } );
 
         } );
 
