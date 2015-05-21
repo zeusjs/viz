@@ -1,10 +1,10 @@
 {
   "name": "zeus-viz",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Graphs & visualization widgets built using AngularJS and D3.js",
-  "main": "dist/index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "deploy": "grunt build && ./publish.sh"
   },
   "repository": {
     "type": "git",
