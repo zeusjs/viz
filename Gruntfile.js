@@ -97,7 +97,7 @@ module.exports = function ( grunt ) {
 
         jscs: {
         src: [
-                'app/js/{,*/}*.js',
+                'src/js/{,*/}*.js',
                 'test/spec/{,*/}*.js'
             ],
             options: {
