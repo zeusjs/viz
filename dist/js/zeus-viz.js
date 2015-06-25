@@ -39,7 +39,7 @@ angular.module( 'zeus.viz', [] );
  *  @param {function($val,$pos)=} tickFormatterY Callback function that accepts
  *  `value` and `position` of a data point and returns string
  *  @param {Array.<string>} seriesLabels Y axis labels for each of the bars
- *  @param {number=} leftMargin Optional left margin for text. Defaults to `80`
+ *  @param {number=} leftMargin Optional left MARGINS for text. Defaults to `80`
  *  @param {Object=} lastUpdate Can be used to refresh the graph
  *
  *  @example
@@ -105,8 +105,9 @@ angular.module( 'zeus.viz', [] );
 angular.module( 'zeus.viz' )
 .directive( 'zsBarGraph', [ '$timeout', function ( $timeout ) {
 
-        var postLink, renderChart, wrapLabel,
-            margin = { top: 20, right: 20, bottom: 30, left: 80 };
+        var MARGINS = { top: 20, right: 20, bottom: 30, left: 80 },
+            postLink, renderChart, wrapLabel;
+
 
         wrapLabel = function ( text, width ) {
 
@@ -140,6 +141,7 @@ angular.module( 'zeus.viz' )
                 }
             } );
         };
+
         renderChart = function ( scope, element, tip ) {
 
             // Early exit
@@ -149,8 +151,8 @@ angular.module( 'zeus.viz' )
 
             // Reset height of parent
             var parentEl = element[ 0 ].parentElement,
-                leftMargin = +scope.leftMargin || margin.left,
-                width, height,
+                leftMargin = +scope.leftMargin || MARGINS.left,
+                width, height, hMax, wMax,
                 svg, graphCanvas, bars, xAxis, yAxis,
                 x, y, xAxisLabels, xMax;
 
@@ -161,20 +163,21 @@ angular.module( 'zeus.viz' )
             svg.attr( 'width', 0 ).
                 attr( 'height', 0 );
 
-            width = parentEl.clientWidth - leftMargin - margin.right;
+            width = parentEl.clientWidth;
             height = scope.graphHeight ? +scope.graphHeight : parentEl.clientHeight;
 
-            height = height - margin.top - margin.bottom;
+            hMax = height - MARGINS.top - MARGINS.bottom;
+            wMax = width  - leftMargin - MARGINS.right;
 
-            svg.attr( 'width', width + leftMargin + margin.right ).
-                attr( 'height', height + margin.top + margin.bottom );
+            svg.attr( 'width', width ).
+                attr( 'height', height );
 
             y = d3.scale.ordinal().
                 domain( scope.seriesLabels ).
-                rangeRoundBands( [ height, 0 ], 0.2 );
+                rangeRoundBands( [ hMax, 0 ], 0.2 );
 
 
-            x = d3.scale.linear().rangeRound( [ 0, width ] );
+            x = d3.scale.linear().rangeRound( [ 0, wMax ] );
 
             if ( scope.clampX ) {
                 x.clamp( true ).domain( [ 0, scope.clampX ] );
@@ -191,16 +194,17 @@ angular.module( 'zeus.viz' )
                     tickFormat( function ( v ) {
                         return scope.tickFormatterX( { $val: v } );
                     } ).
-                    innerTickSize( -height );
+                    innerTickSize( -hMax );
 
             yAxis = d3.svg.axis().
                     scale( y ).orient( 'left' ).
-                    innerTickSize( -width );
+                    innerTickSize( -wMax );
 
 
-            graphCanvas.attr( 'transform', 'translate(' + leftMargin + ',' + margin.top + ')' );
+            graphCanvas.attr( 'transform', 'translate(' + leftMargin + ',' + MARGINS.top + ')' );
+
             graphCanvas.select( 'g.x-axis' ).
-                attr( 'transform', 'translate(0,' + height + ')' ).
+                attr( 'transform', 'translate(0,' + hMax + ')' ).
                 transition().
                 duration( 800 ).
                 call( xAxis );
@@ -288,7 +292,9 @@ angular.module( 'zeus.viz' )
 
             svg.call( tip );
 
-            graphCanvas = svg.append( 'g' );
+            graphCanvas = svg.append( 'g' ).
+                              attr( 'transform', 'translate(' + MARGINS.left +
+                                    ',' + MARGINS.top + ')' );
 
             graphCanvas.append( 'g' ).attr( 'class', 'axis x-axis' );
             graphCanvas.append( 'g' ).attr( 'class', 'axis y-axis' );
