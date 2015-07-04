@@ -1,0 +1,42 @@
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+
+svg.histogram
+{
+    .axis
+    {
+        fill: $color_gray;
+        text
+        {
+            font-size: 0.85em;
+        }
+
+        path,
+        line
+        {
+          fill: none;
+          stroke: $color_gray;
+          shape-rendering: crispEdges;
+        }
+
+        g.tick
+        {
+            line
+            {
+                stroke: $color_gray_lighter;
+            }
+        }
+    }
+
+    .shadow-bar
+    {
+        fill: #FFF;
+
+
+    }
+}
