@@ -170,3 +170,23 @@ svg.bar-graph .axis {
     stroke: #eee; }
 svg.bar-graph .shadow-bar {
   fill: #FFF; }
+
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+svg.histogram .axis {
+  fill: #999; }
+  svg.histogram .axis text {
+    font-size: 0.85em; }
+  svg.histogram .axis path, svg.histogram .axis line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+  svg.histogram .axis g.tick line {
+    stroke: #eee; }
+svg.histogram .shadow-bar {
+  fill: #FFF; }
