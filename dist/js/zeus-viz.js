@@ -77,7 +77,7 @@ angular.module( 'zeus.viz', [] );
             };
 
             $scope.fgTooltips = function ( val, pos ) {
-                return $scope.seriesLabels[ pos ] + ': ' + prettyNumberFilter( val );
+                return $scope.seriesLabels[ pos ] + ': ' + val;
             };
 
             $scope.growthTickFormatter = function ( val ) {
