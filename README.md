@@ -1,7 +1,14 @@
+<p align="center">
+    <a href="http://zeusjs.github.io/viz">
+        <img alt="ZeusJS Visualizations" src="https://raw.githubusercontent.com/zeusjs/logo/master/zeus-logo.png" width="200">
+    </a>
+</p>
 # zeus-viz
-[![Build Status](https://travis-ci.org/zeusjs/viz.svg)](https://travis-ci.org/zeusjs/viz) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+[![Build Status](https://travis-ci.org/zeusjs/viz.svg)](https://travis-ci.org/zeusjs/viz)
+[![devDependency Status](https://david-dm.org/zeusjs/viz/dev-status.svg)](https://david-dm.org/zeusjs/viz#info=devDependencies)
+[![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
----
+
 A set of graphs &amp; visualization widgets built using AngularJS and D3.js
 
 ## Installation
