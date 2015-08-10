@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - "0.10"
+  - '0.10'
 before_script:
   - npm install --quiet -g grunt-cli karma
   - npm install
@@ -9,4 +9,5 @@ after_success: ./publish.sh
 env:
   global:
     - GH_REF: github.com/zeusjs/viz.git
-    - secure: dyHpNy00V3pGgJq4OSQjKqRJROExTrHwB4WmadFJelwdwEhijfvWNrQGnl5CvFKZHfyAQy16FY2XPKjwyOFdZJKf5gsW4Hd+V2gGxvclpaPOjy8ym0jtVesCzl65rM6csDZrNjoDMAvXcd1uCEZS+I5p+7nPIS66xdfSXzkDoos=
+    - secure: PYPW6S2fF7XSk6jjSHKKgypbijTi5nDHQ/u7l9PZARmQaL/no4XjsmNr5ua0wNfGk29MSlNmvT0rlOgf+6AeEpli8MFATd9CtNo2bVIfEizSqFF14nso7TqcG84T40yeJifajemuEFaeW0xnwBdJVK9jbOX61/Ii+U1unhhErwc=
+    - secure: Pte2MlZ1Tp035WmGQP6Vd9l7ubXOv5O878fcMGorpJuwHpUpmRgD0WJiTZSkYGRfb50L4ViM0n1IYA87FE+hudLNBmuF6qBZsV1wGhSLcuFRyQIbbcAExNtb/Hmm06Myxf49LvNok9bPzJTElviOeHvbS+24fusW4tbVSlD6k4A=
