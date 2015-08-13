@@ -5,7 +5,7 @@
 </p>
 # zeus-viz
 [![Build Status](https://travis-ci.org/zeusjs/viz.svg)](https://travis-ci.org/zeusjs/viz)
-[![devDependency Status](https://david-dm.org/zeusjs/viz/dev-status.svg)](https://david-dm.org/zeusjs/viz#info=devDependencies)
+[![Code Climate](https://codeclimate.com/github/zeusjs/viz/badges/gpa.svg)](https://codeclimate.com/github/zeusjs/viz) [![devDependency Status](https://david-dm.org/zeusjs/viz/dev-status.svg)](https://david-dm.org/zeusjs/viz#info=devDependencies)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 
