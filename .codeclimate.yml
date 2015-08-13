@@ -1,0 +1,13 @@
+# Save as .codeclimate.yml (note leading .) in project root directory
+languages:
+  JavaScript: true
+
+exclude_paths:
+    - "dist/*"
+    - "docs/*"
+    - ".gen/*"
+    - ".tmp/*"
+    - "node_modules/*"
+    - "extern/*"
+    - "Gruntfile.js"
+    - "karma.conf.js"
