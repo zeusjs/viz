@@ -1,0 +1,241 @@
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+.d3-tip {
+  line-height: 1;
+  font-size: 0.95em;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+  pointer-events: none; }
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  position: absolute;
+  pointer-events: none; }
+
+/* Northward tooltips */
+.d3-tip.n:after {
+  content: "\25BC";
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+  text-align: center; }
+
+/* Eastward tooltips */
+.d3-tip.e:after {
+  content: "\25C0";
+  margin: -4px 0 0 0;
+  top: 50%;
+  left: -8px; }
+
+/* Southward tooltips */
+.d3-tip.s:after {
+  content: "\25B2";
+  margin: 0 0 1px 0;
+  top: -8px;
+  left: 0;
+  text-align: center; }
+
+/* Westward tooltips */
+.d3-tip.w:after {
+  content: "\25B6";
+  margin: -4px 0 0 -1px;
+  top: 50%;
+  left: 100%; }
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0; }
+
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+.zs-donut
+.unfilled {
+  fill: white;
+  stroke-width: 10;
+  stroke: #DDD; }
+
+.zs-donut
+.legend-fragment
+text {
+  fill: #666;
+  font-weight: 300;
+  font-size: 0.85em; }
+
+.zs-donut
+text.donut-title {
+  fill: #666;
+  font-weight: 400; }
+
+.zs-donut
+text.donut-subtitle {
+  fill: #999; }
+
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+svg.multi-column-graph
+.axis {
+  fill: #999; }
+  svg.multi-column-graph
+.axis
+text {
+    font-size: 0.85em; }
+  svg.multi-column-graph
+.axis path,
+  svg.multi-column-graph
+.axis
+line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+  svg.multi-column-graph
+.axis
+g.tick
+line {
+    stroke: #eee; }
+
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+svg.punch-card
+g.axis {
+  fill: #999; }
+  svg.punch-card
+g.axis
+text {
+    font-size: 0.85em; }
+  svg.punch-card
+g.axis path,
+  svg.punch-card
+g.axis
+line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+
+.punch-card-tooltip {
+  position: absolute;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #ddd;
+  padding: 5px;
+  max-width: 200px;
+  text-align: center; }
+  .punch-card-tooltip .tooltip-message:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 7px solid transparent;
+    border-bottom: 7px solid transparent;
+    border-right: 7px solid rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: rotate(270deg);
+    -webkit-transform: rotate(270deg); }
+
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+svg.bar-graph
+.axis {
+  fill: #999; }
+  svg.bar-graph
+.axis
+text {
+    font-size: 0.85em; }
+  svg.bar-graph
+.axis path,
+  svg.bar-graph
+.axis
+line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+  svg.bar-graph
+.axis
+g.tick
+line {
+    stroke: #eee; }
+
+svg.bar-graph
+.shadow-bar {
+  fill: #FFF; }
+
+/**
+ * Copyright 2015, Symantec Corporation
+ * All rights reserved.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree
+ */
+svg.histogram
+.axis {
+  fill: #999; }
+  svg.histogram
+.axis
+text {
+    font-size: 0.85em; }
+  svg.histogram
+.axis path,
+  svg.histogram
+.axis
+line {
+    fill: none;
+    stroke: #999;
+    shape-rendering: crispEdges; }
+  svg.histogram
+.axis
+g.tick
+line {
+    stroke: #eee; }
+
+svg.histogram
+.shadow-bar {
+  fill: #FFF; }

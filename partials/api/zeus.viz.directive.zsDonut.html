@@ -1,0 +1,65 @@
+<a href="https://github.com/zeusjs/viz/edit/master/src/js/zs_donut.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/zeusjs/viz/blob/b9c379a/src/js/zs_donut.js#L56" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">zsDonut</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">zeus.viz</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="zeus-viz-directive-page zeus-viz-directive-zsdonut-page"><p>A directive for rendering single valued( percentage based ) donuts as well as
+multi series donut</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;zs-donut
+       percentage="{number}"
+       values="{Array.&lt;object&gt;}"
+       [segment-color="{function($val,$index)}"]
+       [title="{string}"]
+       [subtitle="{string}"]&gt;
+&lt;/zs-donut&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>percentage</td><td><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsdonut-page"><p>Percentage</p>
+</div></td></tr><tr><td>values</td><td><a href="" class="label type-hint type-hint-array">Array.&lt;object&gt;</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsdonut-page"><p>Values as array of objects {label: &#39;tooltip text&#39;, value: 100}</p>
+</div></td></tr><tr><td>segmentColor <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function($val,$index</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsdonut-page"><p>Callback function that accepts
+<code>value</code> and <code>index</code> of a segment and returns its hex color as <code>string</code></p>
+</div></td></tr><tr><td>title <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsdonut-page"><p>Title</p>
+</div></td></tr><tr><td>subtitle <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsdonut-page"><p>Subtitle</p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="zeus-viz-directive-page zeus-viz-directive-zsdonut-page"><h4 id="example_source">Source</h4>
+<div source-edit="zeus.viz" source-edit-deps="angular.js myCtrl.js" source-edit-html="index.html-0" source-edit-css="" source-edit-js="myCtrl.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-0" ng-html-wrap-loaded="zeus.viz angular.js myCtrl.js"></pre>
+<script type="text/ng-template" id="index.html-0">
+    <div ng-controller="myCtrl">
+        <zs-donut values="val" text="45"
+            subtitle="people" segment-color="paints($index)">
+        </zs-donut>
+    </div>
+</script>
+</div>
+<div class="tab-pane" title="myCtrl.js">
+<pre class="prettyprint linenums" ng-set-text="myCtrl.js"></pre>
+<script type="text/ng-template" id="myCtrl.js">
+    angular.module( 'zeus.viz' ).controller( 'myCtrl', function ( $scope ) {
+        var cols = [ '#ff9800', '#8bc34a', '#e91e63', '#03a9f4'  ];
+        $scope.perc = 99.999999;
+
+        $scope.val = [
+            { label: 'This is test data', value: 10 },
+            { label: 'This is test data', value: 20 },
+            { label: 'This is sample data', value: 30 },
+            { label: 'This is dummy data', value: 40 }
+        ];
+
+        $scope.paints = function ( idx ) {
+            return cols[ idx ];
+        }
+    } );
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="zeus.viz" ng-set-html="index.html-0" ng-eval-javascript="myCtrl.js"></div>
+</div></div>
+</div>

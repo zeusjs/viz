@@ -1,0 +1,62 @@
+<a href="https://github.com/zeusjs/viz/edit/master/src/js/zs_gauge.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/zeusjs/viz/blob/b9c379a/src/js/zs_gauge.js#L54" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">zsGauge</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">zeus.viz</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="zeus-viz-directive-page zeus-viz-directive-zsgauge-page"><p>A directive for rendering a gauge with a needle</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;zs-gauge
+       value="{number}"
+       max-value="{number}"
+       [back-color="{string}"]
+       [fill-color="{string}"]&gt;
+&lt;/zs-gauge&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>value</td><td><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsgauge-page"><p>Current value to be indicated by gauge</p>
+</div></td></tr><tr><td>maxValue</td><td><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsgauge-page"><p>Max possible value</p>
+</div></td></tr><tr><td>backColor <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsgauge-page"><p>The color of unfilled portion of the gauge</p>
+</div></td></tr><tr><td>fillColor <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsgauge-page"><p>The color of filled portion of the gauge</p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="zeus-viz-directive-page zeus-viz-directive-zsgauge-page"><h4 id="example_source">Source</h4>
+<div source-edit="zeus.viz" source-edit-deps="angular.js myCtrl.js" source-edit-html="index.html-1" source-edit-css="" source-edit-js="myCtrl.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-1" ng-html-wrap-loaded="zeus.viz angular.js myCtrl.js"></pre>
+<script type="text/ng-template" id="index.html-1">
+    <div ng-controller="myCtrl" style="width:350px;height:300px">
+        <zs-gauge max-value="total"
+            value="val"
+            back-color="#CCC" fill-color="#ff9800">
+        </zs-gauge>
+    </div>
+</script>
+</div>
+<div class="tab-pane" title="myCtrl.js">
+<pre class="prettyprint linenums" ng-set-text="myCtrl.js"></pre>
+<script type="text/ng-template" id="myCtrl.js">
+    angular.module( 'zeus.viz' ).controller( 'myCtrl', function ( $scope, $interval ) {
+        var cols = [ '#ff9800', '#8bc34a', '#e91e63', '#03a9f4'  ],
+            stop;
+
+        $scope.val = Math.random() * 1000;
+        $scope.total = 1000;
+
+        stop = $interval( function () {
+            $scope.val = Math.random() * 1000;
+        }, 5000 );
+
+        $scope.$on( '$destroy', function () {
+            $interval.cancel( stop );
+        } );
+    } );
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="zeus.viz" ng-set-html="index.html-1" ng-eval-javascript="myCtrl.js"></div>
+</div></div>
+</div>

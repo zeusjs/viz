@@ -1,0 +1,144 @@
+<a href="https://github.com/zeusjs/viz/edit/master/src/js/zs_multi_column_graph.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/zeusjs/viz/blob/b9c379a/src/js/zs_multi_column_graph.js#L134" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">zsMultiColumnGraph</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">zeus.viz</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>A directive for a time based area polt</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;zs-multi-column-graph
+       values="{Array.&lt;Array&lt;number&gt;&gt;}"
+       [tick-formatter-y="{function($pos)}"]
+       [tick-formatter-x="{function($pos)}"]
+       [left-margin="{number}"]
+       [last-update="{Object}"]
+       [mode="{string}"]
+       color-generator="{function($series)}"
+       tooltip-formatter="{function($val,$pos,$series,$samples)}"
+       [label-axis-y="{string}"]
+       [clamp-y="{number}"]&gt;
+&lt;/zs-multi-column-graph&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>values</td><td><a href="" class="label type-hint type-hint-array">Array.&lt;Array&lt;number&gt;&gt;</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>Samples. Each subarray contains contains samples
+from all series for a given <code>x</code> value</p>
+</div></td></tr><tr><td>tickFormatterY <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function($pos</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>Callback function that accepts
+<code>position</code> of a data point and returns string</p>
+</div></td></tr><tr><td>tickFormatterX <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function($pos</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>Callback function that accepts
+<code>position</code> of a data point and returns string</p>
+</div></td></tr><tr><td>leftMargin <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>Optional left margin for text. Defaults to <code>80</code></p>
+</div></td></tr><tr><td>lastUpdate <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>Can be used to refresh the graph</p>
+</div></td></tr><tr><td>mode <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>whether graph is stacked or grouped. Grouped by default</p>
+</div></td></tr><tr><td>colorGenerator</td><td><a href="" class="label type-hint type-hint-function">function($series</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>returns a hex color value for
+a particular series index</p>
+</div></td></tr><tr><td>tooltipFormatter</td><td><a href="" class="label type-hint type-hint-function">function($val,$pos,$series,$samples</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>returns html.
+Accepts ($samples, $pos) for stacked and ($val,$series) for grouped</p>
+</div></td></tr><tr><td>labelAxisY <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>Label for Y axis</p>
+</div></td></tr><tr><td>clampY <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><p>Clamp Y max value</p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="zeus-viz-directive-page zeus-viz-directive-zsmulticolumngraph-page"><h4 id="example_source">Source</h4>
+<div source-edit="zeus.viz" source-edit-deps="angular.js myCtrl.js" source-edit-html="index.html-3" source-edit-css="" source-edit-js="myCtrl.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html-3" ng-html-wrap-loaded="zeus.viz angular.js myCtrl.js"></pre>
+<script type="text/ng-template" id="index.html-3">
+    <div ng-controller="myCtrl" style="height: 350px">
+        <div class="alert alert-info pull-left">
+            Current mode is <b>{{ activity.graphMode }}</b>
+        </div>
+        <button class="btn btn-info pull-right" ng-click="changeMode()">
+            Toggle mode
+        </button>
+
+        <div style="height: 300px">
+        <zs-multi-column-graph
+            color-generator="activity.colors($series)"
+            left-margin="150"
+            last-update="lastUpdate"
+            values="activity.samples"
+            mode="{{ activity.graphMode }}"
+            tooltip-formatter="activity.tooltips($samples,$pos,$series,$val)"
+            tick-formatter-x="activity.xTickFormatter($pos)"
+            tick-formatter-y="activity.yTickFormatter($val)">
+        </zs-multi-column-graph>
+        </div>
+    </div>
+</script>
+</div>
+<div class="tab-pane" title="myCtrl.js">
+<pre class="prettyprint linenums" ng-set-text="myCtrl.js"></pre>
+<script type="text/ng-template" id="myCtrl.js">
+    angular.module( 'zeus.viz' ).controller( 'myCtrl',
+    function ( $scope ) {
+
+        var colors = [ '#ff5722', '#8bc34a', '#ffc107', '#03a9f4',
+            '#e91e63', '#009688' , '#ff9800' ],
+
+            labels = [ 'Create', 'Rename', 'Reads', 'Writes', 'Deletes', 'List', 'Open' ];
+
+        $scope.changeMode = function () {
+            if ( $scope.activity.graphMode === 'stack' ) {
+                $scope.activity.graphMode = 'group'
+            } else {
+                $scope.activity.graphMode = 'stack'
+            }
+        };
+
+        $scope.activity = {
+            samples: [ [ Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000 ],
+                        [ Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000 ],
+                        [ Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000 ],
+                        [ Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000 ],
+                        [ Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000, Math.random() * 10000,
+                        Math.random() * 10000 ] ],
+
+            xTickFormatter: function ( pos ) {
+
+                return pos;
+            },
+
+            yTickFormatter: function ( val ) {
+                return val;
+            },
+
+            colors: function ( pos ) {
+                return colors[ pos ];
+            },
+            tooltips: function ( samples, pos, series, val ) {
+                var text = [],
+                    i;
+
+                if ( !angular.isDefined( val ) ) {
+                    for ( i = 0; i < samples.length; i++ ) {
+                        text.push( labels[ i ] + ': ' + samples[ i ] );
+                    }
+
+                    return text.join( '<br/>' );
+                } else {
+                    return labels[ series ] + ': ' + val;
+                }
+            },
+
+            graphMode: 'group',
+            graphModeStack: 'stack'
+        };
+
+    } );
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="zeus.viz" ng-set-html="index.html-3" ng-eval-javascript="myCtrl.js"></div>
+</div></div>
+</div>

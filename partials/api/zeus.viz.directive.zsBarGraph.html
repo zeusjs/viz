@@ -1,0 +1,96 @@
+<a href="https://github.com/zeusjs/viz/edit/master/src/js/zs_bar_graph.js" class="improve-docs"><i class="icon-edit"> </i>Improve this doc</a><a href="https://github.com/zeusjs/viz/blob/b9c379a/src/js/zs_bar_graph.js#L87" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">zsBarGraph</code>
+<div><span class="hint">directive in module <code ng:non-bindable="">zeus.viz</code>
+</span>
+</div>
+</h1>
+<div><h2 id="description">Description</h2>
+<div class="description"><div class="zeus-viz-directive-page zeus-viz-directive-zsbargraph-page"><p>A directive for horizontal bar charts</p>
+</div></div>
+<h2 id="usage">Usage</h2>
+<div class="usage">as element:<pre class="prettyprint linenums">&lt;zs-bar-graph
+       values="{Array.&lt;number&gt;}"
+       [tick-formatter-y="{function($val,$pos)}"]
+       series-labels="{Array.&lt;string&gt;}"
+       [left-margin="{number}"]
+       [last-update="{Object}"]&gt;
+&lt;/zs-bar-graph&gt;</pre>
+<h3 id="usage_directive-info">Directive info</h3>
+<div class="directive-info"><ul><li>This directive creates new scope.</li>
+</ul>
+</div>
+<h4 id="usage_directive-info_parameters">Parameters</h4><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>values</td><td><a href="" class="label type-hint type-hint-array">Array.&lt;number&gt;</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsbargraph-page"><p>Values as array of numbers</p>
+</div></td></tr><tr><td>tickFormatterY <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-function">function($val,$pos</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsbargraph-page"><p>Callback function that accepts
+<code>value</code> and <code>position</code> of a data point and returns string</p>
+</div></td></tr><tr><td>seriesLabels</td><td><a href="" class="label type-hint type-hint-array">Array.&lt;string&gt;</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsbargraph-page"><p>Y axis labels for each of the bars</p>
+</div></td></tr><tr><td>leftMargin <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-number">number</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsbargraph-page"><p>Optional left MARGINS for text. Defaults to <code>80</code></p>
+</div></td></tr><tr><td>lastUpdate <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">Object</a></td><td><div class="zeus-viz-directive-page zeus-viz-directive-zsbargraph-page"><p>Can be used to refresh the graph</p>
+</div></td></tr></tbody></table></div>
+<h2 id="example">Example</h2>
+<div class="example"><div class="zeus-viz-directive-page zeus-viz-directive-zsbargraph-page"><h4 id="example_source">Source</h4>
+<div source-edit="zeus.viz" source-edit-deps="angular.js myCtrl.js" source-edit-html="index.html" source-edit-css="" source-edit-js="myCtrl.js" source-edit-json="" source-edit-unit="" source-edit-scenario=""></div>
+<div class="tabbable"><div class="tab-pane" title="index.html">
+<pre class="prettyprint linenums" ng-set-text="index.html" ng-html-wrap-loaded="zeus.viz angular.js myCtrl.js"></pre>
+<script type="text/ng-template" id="index.html">
+    <div ng-controller="myCtrl" style="height: 350px">
+        <zs-bar-graph values="byFileGroup"
+            last-update="lastUpdate"
+            color-generator="fgColor($pos)"
+            series-labels="seriesLabels"
+            tooltip-formatter="fgTooltips($val,$pos)"
+            tick-formatter-x="growthTickFormatter($val)">
+        </zs-bar-graph>
+    </div>
+</script>
+</div>
+<div class="tab-pane" title="myCtrl.js">
+<pre class="prettyprint linenums" ng-set-text="myCtrl.js"></pre>
+<script type="text/ng-template" id="myCtrl.js">
+    angular.module( 'zeus.viz' ).controller( 'myCtrl',
+    function ( $scope, $interval ) {
+
+        var colors = [ '#ff5722', '#8bc34a', '#ffc107', '#03a9f4',
+            '#e91e63', '#009688' , '#ff9800' ],
+
+            stop;
+
+        $scope.byFileGroup = [
+            100, 40, 50, 20, 10, 80
+        ];
+
+        $scope.seriesLabels = [
+            'Men', 'Elves', 'Hobbits', 'Dwarves', 'Orcs', 'Goblins'
+        ];
+
+        $scope.fgColor = function ( pos ) {
+            return colors[ pos ];
+        };
+
+        $scope.fgTooltips = function ( val, pos ) {
+            return $scope.seriesLabels[ pos ] + ': ' + val;
+        };
+
+        $scope.growthTickFormatter = function ( val ) {
+            return val;
+        };
+
+        stop = $interval( function () {
+            $scope.byFileGroup = [
+                Math.random() * 1000, Math.random() * 1000, Math.random() * 1000,
+                Math.random() * 1000, Math.random() * 1000, Math.random() * 1000
+            ];
+
+            $scope.lastUpdate = ( new Date() ).getTime();
+
+        }, 5000 );
+
+        $scope.$on( '$destroy', function () {
+            $interval.cancel( stop );
+        } );
+
+    } );
+</script>
+</div>
+</div><h4 id="example_demo">Demo</h4>
+<div class="well doc-example-live animate-container" ng-embed-app="zeus.viz" ng-set-html="index.html" ng-eval-javascript="myCtrl.js"></div>
+</div></div>
+</div>
