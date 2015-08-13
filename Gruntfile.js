@@ -308,8 +308,7 @@ module.exports = function ( grunt ) {
         ] );
 
         grunt.registerTask( 'test', [
-            'lint',
-            'jshint:test'
+            'lint'
             // 'karma'
         ] );
 
@@ -319,8 +318,8 @@ module.exports = function ( grunt ) {
 
         grunt.registerTask( 'build', [
             'lint',
-            // 'karma',
             'clean',
+            // 'karma',
             'sass',
             'autoprefixer',
             'concat',

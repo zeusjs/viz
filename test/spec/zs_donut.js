@@ -3,8 +3,8 @@
 xdescribe( 'Directive: zsDonut', function () {
 
     // load the directive's module
-    beforeEach( module( 'zsApp' ) );
-    beforeEach( module( 'templates/directives/zs_donut.html' ) );
+    beforeEach( module( 'zeus.viz' ) );
+    // beforeEach( module( 'templates/directives/zs_donut.html' ) );
 
     var element,
         scope, domStr, svgEl, pathEl, circleEl, tooltipEl;

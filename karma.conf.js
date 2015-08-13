@@ -16,12 +16,13 @@ module.exports = function ( config ) {
             'extern/libs/angular.js',
             'extern/libs/angular-mocks.js',
             'extern/libs/d3.js',
+            'extern/libs/d3_tip.js',
 
             'src/js/*.js',
             // 'src/html/*.html',
 
             'test/spec/**/*.js',
-            // 'test/mock_views/*.html',
+            'test/mock_views/*.html',
             'test/fixtures/**/*.json'
 
         ],
@@ -76,7 +77,7 @@ module.exports = function ( config ) {
         preprocessors: {
 
             'src/js/*js': [ 'coverage' ],
-            'test/fixtures/**/*.json': [ 'json2js' ],
+            'test/fixtures/**/*.json': [ 'ng-json2js' ],
             'src/html/*.html': [ 'ng-html2js' ],
             'test/mock_views/*.html': [ 'html2js' ]
         },
@@ -94,13 +95,15 @@ module.exports = function ( config ) {
 
         // the default configuration
         junitReporter: {
+            outputDir: '.gen',
             outputFile: 'test-results.xml',
             suite: ''
         },
 
         coverageReporter: {
             type: 'cobertura',
-            dir: '.coverage/'
+            dir: '.gen/coverage/',
+            subdir: 'report'
         }
     } );
 };
