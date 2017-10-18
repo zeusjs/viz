@@ -3,6 +3,7 @@
         <img alt="ZeusJS Visualizations" src="https://raw.githubusercontent.com/zeusjs/logo/master/zeus-logo.png" width="200">
     </a>
 </p>
+
 # zeus-viz
 
 [![Build Status](https://travis-ci.org/zeusjs/viz.svg)](https://travis-ci.org/zeusjs/viz)
